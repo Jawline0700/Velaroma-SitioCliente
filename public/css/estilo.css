@@ -1,0 +1,306 @@
+@font-face{
+	font-family:"Riwaya-Italic";
+	src:url("../fuentes/Riwaya-Italic.ttf") format("truetype");
+  }
+  .hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#D8A2A2;
+    padding: 0;
+  }
+  .titulo{
+    text-align: center;
+    font-family:"Riwaya-Italic";
+    font-size:30px;
+
+}
+
+#boton-carrito {
+    border: none;
+    background-color:#D8A2A2;
+    color:white;
+    font-size: 20px;
+  transform: translateY(-27%);
+    height: 100px;
+
+}
+.btncar{
+    position:absolute;
+    bottom:60%;
+    border: none;
+    background-color:#D8A2A2;
+    color:white;
+    font-size: 20px;
+    transition: all .3s;
+    height: 100px;
+}
+
+.carritobtn{
+    text-align: center;
+}
+
+
+#boton-carrito:hover {
+    cursor: pointer;
+    background-color: #A48B8B;
+}
+#boton-carrito:focus {
+    outline: none;
+}
+
+#contenedor-productos {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.producto {
+    max-width: 30%;
+    padding: 40px;
+    margin: 10px;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+    box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.precioProducto {
+    font-weight: 700;
+}
+
+.boton-pagar{
+    transform:translateY(-30px);
+    margin-left: 400px;
+    background-color: #D8A2A2;
+    border: none;
+    color: #FFFFFF;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family:"Riwaya-Italic";
+    font-size: 15px;
+   
+
+}
+.boton-agregar {
+    background-color: #D8A2A2;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 3px 15px;
+    margin: 2px 2px;
+    border-radius: 4px;
+    font-family:"Riwaya-Italic";
+    font-size: 15px;
+}
+.boton-agregar:hover {
+    cursor: pointer;
+}
+.boton-agregar:focus {
+    outline: none;
+}
+
+.modal-contenedor {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-carrito {
+    position: relative;
+    background-color: white;
+    min-width: 500px;
+    padding: 20px;
+    margin-top: -100%;
+    transition: all .5s;
+}
+
+.modal-active .modal-carrito {
+    margin-top: 0;
+}
+
+.modal-carrito h3 {
+    color: #A48B8B;
+    padding-bottom: 5px;
+}
+.modal-carrito #carritoCerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    font-family:"Riwaya-Italic";
+    color: #A48B8B;
+    border: none;
+    background-color: white;
+}
+.modal-carrito #carritoCerrar:hover {
+    cursor: pointer;
+}
+.modal-carrito #carritoCerrar:focus {
+    outline: none;
+}
+.modal-carrito .precioProducto {
+    padding-top: 10px;
+    
+}
+
+#contadorCarrito{
+    font-family:"Riwaya-Italic";
+    color: white;
+}
+
+.productoEnCarrito {
+    border-left: 5px solid #A48B8B;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.productoEnCarrito:hover {
+    border-left: 5px solid #D8A2A2;
+}
+
+.boton-eliminar {
+    background-color:white;
+    color: red;
+    border: none;
+    font-size: 20px;
+}
+
+.boton-eliminar:hover {
+    cursor: pointer;
+}
+.boton-eliminar:focus {
+    outline: none;
+}
+  
+  
+
+  .hero1{
+   overflow: hidden;
+    background-color:#D8A2A2;
+    padding: 0;
+  }
+  H1{
+    font-family:"Riwaya-Italic"; 
+  }
+
+  .logo{margin-left: 0.55rem;
+    width: fit-content;
+    font-family:"Riwaya-Italic";
+    margin-top:0.1rem;
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content:space-around;}
+
+
+
+
+nav{font-family:"Riwaya-Italic";
+    font-size:20px;
+	list-style: none;
+	padding: 0;
+    text-align: center;
+	overflow: hidden;
+	background:#D8A2A2;
+	width: 100vw;
+	margin: auto;
+  display: flex;
+  justify-content: center;
+
+}
+
+nav li a{
+	text-decoration: none;
+	color: white;
+	padding: 15px;
+	display: block;
+}
+nav li a:hover{
+	background: #A48B8B;
+	color:white;
+	
+}
+
+nav li{
+	display: inline-block;
+	text-align: center;
+}
+
+.submenu{display:none;
+    background-color:#D8A2A2;}
+
+nav ul li:hover .submenu{display:block;
+                    position:absolute;				    
+                    z-index: 3;  
+                    margin-top:0px;
+                    }
+                    ul{margin:0;
+                        padding:0;}            
+
+body{
+    background-color: rgb(255, 239, 250);
+    margin:0;
+}
+.titulo{
+    font-weight: bold;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: white; font-family:"Riwaya-Italic" ;
+}
+
+footer{
+
+    background-color:#D8A2A2;
+}
+
+.pie{
+    background-color:#D8A2A2;
+    color:white;
+    font-family:"Riwaya-Italic";
+    font-size:20px;
+    padding-left:350px;
+    float:left;
+}
+.pie2{
+    background-color:#D8A2A2;
+    color:white;
+    font-family:"Riwaya-Italic";
+    font-size:20px;
+    padding-right:350px;
+    float:right;
+  
+   
+}
+.pie3{
+    background-color:#D8A2A2;
+    font-family:"Riwaya-Italic";
+    font-size:14px;
+    color: #FFFFFF;
+    justify-content:center;
+    display: flex;
+    padding: 0;
+}

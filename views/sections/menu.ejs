@@ -1,0 +1,26 @@
+<nav>
+    <ul>
+      <li  <% if(pagina == 1){ }%> >
+        <a href="/"><i class="fa-solid fa-house fa-2xl"></i><p>Inicio</p></a>
+    </li>
+      <li  <% if(pagina == 2){ }%> >
+        <a href="quienes_somos"><i class="fa-solid fa-question fa-2xl"></i><p>Quienes somos</p></a>
+      </li>
+      <li><a href=""><i class="fa-solid fa-bag-shopping fa-2xl"></i><p>Productos</p></a>
+        <div class="submenu">
+            <ul <% if(pagina == 4){ }%>>
+                <a href="incienso">Incienso</a>
+            </ul>
+            <ul <% if(pagina == 3){ }%> >
+                <a href="velas">Velas</a>
+            </ul>
+            <ul <% if(pagina == 5){ }%> >
+              <a href="personalizar">Personalizacion</a></ul>
+        </div>
+      </li>
+      <li <% if(pagina == 6){ }%> >
+        <a href="contactanos"><i class="fa-solid fa-location-dot fa-2xl"></i><p>Contactanos</p></a>
+      </li>
+      <li><button id="boton-carrito"><i class="fa-solid fa-shopping-cart fa-2xl"></i><span id="contadorCarrito">0</span><p>Carrito</p></button></li>
+    </ul>
+</nav>
