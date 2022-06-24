@@ -1,12 +1,10 @@
 var express = require("express"),
 ejs = require ("ejs");
-
+const conexion = require('./router');
 var app = express();
-
 app.set("view engine","ejs");
-
 app.use(express.static("public"));
-
+app.use(express.json());
 
 app.get("/",function(req,res){
     res.type("text/html");
