@@ -206,14 +206,11 @@
     font-family:"Riwaya-Italic"; 
   }
 
-  .logo{margin-left: 0.55rem;
-    width: fit-content;
+  .logo{
+    float: left;
     font-family:"Riwaya-Italic";
-    margin-top:0.1rem;
-    display: flex;
-    margin-bottom: 10px;
-    align-items: center;
-    justify-content:space-around;}
+    margin: 20px;
+  }
 
 
 
@@ -228,15 +225,16 @@ nav{font-family:"Riwaya-Italic";
 	width: 100vw;
 	margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content:space-evenly;
 
 }
 
 nav li a{
 	text-decoration: none;
 	color: white;
-	padding: 15px;
+	padding: 50px;
 	display: block;
+    justify-content: space-evenly;
 }
 nav li a:hover{
 	background: #A48B8B;
@@ -244,6 +242,13 @@ nav li a:hover{
 	
 }
 
+
+.nav-link_active {
+
+    background-color: #A48B8B;
+  
+   
+  }
 nav li{
 	display: inline-block;
 	text-align: center;
@@ -258,7 +263,9 @@ nav ul li:hover .submenu{display:block;
                     margin-top:0px;
                     }
                     ul{margin:0;
-                        padding:0;}            
+                        padding:0;
+                        justify-content: center }            
+                                       
 
 body{
     background-color: rgb(255, 239, 250);
@@ -304,3 +311,110 @@ footer{
     display: flex;
     padding: 0;
 }
+
+.container_personal{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 5%;
+    font-family:"Riwaya-Italic";
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.container-contactos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5%;
+    border-radius: 5px;
+    padding: 20px;
+
+}
+
+.left {
+    background-color: #D8A2A2;
+    border-radius: 5px;
+}
+
+.right {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+.center{
+  border-radius: 5px;
+  border:1px solid black;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+input[type=text], input[type=email],  input[type=number],select, textarea {
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px;
+    display: inline-block;
+  }
+  
+  .btname{
+    font-family:"Riwaya-Italic";
+    background-color: #D8A2A2;
+    color: white;
+    padding: 12px 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    
+  }
+
+  #boton-enviar {
+    font-family:"Riwaya-Italic";
+    background-color: #D8A2A2;
+    color: white;
+    padding: 12px 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left:1250px;
+    transform:translateY(-30px);
+    
+  }
+
+  
+ 
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 70%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75 {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+

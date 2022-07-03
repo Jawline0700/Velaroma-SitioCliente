@@ -1,6 +1,18 @@
 
-<main id="contenedor-productos">
-</main>
+  <main id="contenedor-productos">
+    <% results.forEach((inventario)=>{ %>
+     
+        <div class="producto">
+        <img src="img/<%=inventario.imagen%>" alt="" width="250px" height="250px">
+        <h3><%= inventario.nombre %></h3>
+        <p><%= inventario.descripcion %></p>
+        <p class ="precioProducto">Precio:$<%=inventario.precio %></p>
+        <button id="agregar"<%=inventario.id_producto%> class="boton-agregar" >Agregar<i class="fas fa-shopping-cart"></i></button>
+      </div>
+
+        <% }) %>
+      </main>
+
 <div class="modal-contenedor">
     <div class="modal-carrito">
         <h3>Carrito</h3>

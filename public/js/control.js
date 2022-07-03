@@ -1,11 +1,11 @@
 
-const contenedorProductos = document.getElementById('contenedor-productos')
 const contenedorCarrito = document.getElementById('carrito-contenedor')
 const botonVaciar = document.getElementById('vaciar-carrito')
 const contadorCarrito = document.getElementById('contadorCarrito')
 const cantidad = document.getElementById('cantidad')
 const precioTotal = document.getElementById('precioTotal')
 const cantidadTotal = document.getElementById('cantidadTotal')
+const botonagregar = document.getElementById('agregar')
 
 let carrito = []
 
@@ -16,13 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })
 
+botonagregar.addEventListener('click',() =>{
+
+    agregarAlCarrito()
+})
+
+
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
 })
 
 
-stockProductos.forEach((producto) => {
+/*stockProductos.forEach((producto) => {
     const div = document.createElement('div')
     div.classList.add('producto')
     div.innerHTML = `
@@ -44,6 +50,9 @@ stockProductos.forEach((producto) => {
       
     })
 })
+*/
+
+
 
 
 const agregarAlCarrito = (prodId) => {
