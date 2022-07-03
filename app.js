@@ -1,24 +1,23 @@
 var express = require("express"),
 ejs = require ("ejs");
-const conexion = require('./router');
+const conexion = require('./database/db');
 var app = express();
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(express.json());
 
-app.get("/",function(req,res){
-    res.type("text/html");
-    res.render(
-       "index",
-       {
-        pagina:1
-       },
-       function(err,html){
-        if(err) throw err;
-        res.send(html);
-       }
-    );
-});
+
+app.get ("/",(req,res)=>{
+  conexion.query('SELECT * FROM inventario WHERE id_tipoprod = 4',(error,results)=>{
+   if(error){
+    throw error;
+   }else{
+    res.render("index",{pagina:1,results:results})
+    console.log(results);
+   }
+
+  })
+})
 
 app.get("/quienes_somos",function(req, res) {
     res.type("text/html");
@@ -34,36 +33,35 @@ app.get("/quienes_somos",function(req, res) {
     );
   });
 
+  
+  
+app.get ("/velas",(req,res)=>{
+  conexion.query('SELECT * FROM inventario WHERE id_tipoprod = 3',(error,results)=>{
+   if(error){
+    throw error;
+   }else{
+    res.render("index",{pagina:3,results:results})
+    console.log(results);
+   }
+
+  })
+})
 
 
-  app.get("/velas",function(req, res) {
-    res.type("text/html");
-    res.render(
-      "index",
-      {
-        pagina: 3
-      },
-      function(err, html) {
-        if (err) throw err;
-        res.send(html);
-      }
-    );
-  });
 
   
-  app.get("/incienso",function(req, res) {
-    res.type("text/html");
-    res.render(
-      "index",
-      {
-        pagina: 4
-      },
-      function(err, html) {
-        if (err) throw err;
-        res.send(html);
-      }
-    );
-  });
+app.get ("/incienso",(req,res)=>{
+  conexion.query('SELECT * FROM inventario WHERE id_tipoprod = 2',(error,results)=>{
+   if(error){
+    throw error;
+   }else{
+    res.render("index",{pagina:4,results:results})
+    console.log(results);
+   }
+
+  })
+})
+
 
   app.get("/personalizar",function(req, res) {
     res.type("text/html");
