@@ -7,6 +7,8 @@ const precioTotal = document.getElementById('precioTotal')
 const cantidadTotal = document.getElementById('cantidadTotal')
 const botonagregar = document.getElementById('agregar')
 
+
+
 let carrito = []
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,32 +28,6 @@ botonVaciar.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
 })
-
-
-/*stockProductos.forEach((producto) => {
-    const div = document.createElement('div')
-    div.classList.add('producto')
-    div.innerHTML = `
-    <img src=${producto.img} alt= ""width=250px height=250px>
-    <h3>${producto.nombre}</h3>
-    <p>${producto.desc}</p>
-    <p class="precioProducto">Precio:$ ${producto.precio}</p>
-    <button id="agregar${producto.id}" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
-
-    `
-    contenedorProductos.appendChild(div)
-
-
-    const boton = document.getElementById(`agregar${producto.id}`)
-
-    boton.addEventListener('click', () => {
-
-        agregarAlCarrito(producto.id)
-      
-    })
-})
-*/
-
 
 
 

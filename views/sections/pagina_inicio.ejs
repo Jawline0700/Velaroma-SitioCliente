@@ -13,7 +13,7 @@
             <img src="img/inicio.gif" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="img/Ofertascarrusel.gif" class="d-block w-100" alt="...">
+            <img src="img/colab.gif" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
             <img src="img/variadocarrusel.gif" class="d-block w-100" alt="...">
@@ -65,7 +65,7 @@
                   <h3><%= inventario.nombre %></h3>
                   <p><%= inventario.descripcion %></p>
                   <p class ="precioProducto">Precio:$<%=inventario.precio %></p>
-                  <button id="agregar"<%=inventario.id_producto%> class="boton-agregar" >Agregar<i class="fas fa-shopping-cart"></i></button>
+                  <button id="agregar" class="boton-agregar" value="<%=inventario.id_producto%>" >Agregar<i class="fas fa-shopping-cart"></i></button>
                 </div>
          
                   <% }) %>

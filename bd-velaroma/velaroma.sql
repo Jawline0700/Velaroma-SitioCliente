@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-06-2022 a las 01:38:54
+-- Tiempo de generación: 04-07-2022 a las 19:41:03
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -36,6 +36,13 @@ CREATE TABLE `cliente` (
   `numero2` varchar(20) NOT NULL,
   `direccion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `correo`, `numero1`, `numero2`, `direccion`) VALUES
+(1, 'Wencers', 'Castillo', 'wencerscastillo40@gamil.com', '63194033', '63194033', 'Arraijan,Panama');
 
 -- --------------------------------------------------------
 
@@ -79,12 +86,36 @@ CREATE TABLE `estado_transaccion` (
 CREATE TABLE `inventario` (
   `id_producto` int(11) NOT NULL,
   `nombre` varchar(20) NOT NULL,
-  `imagen` varchar(1000) DEFAULT NULL,
+  `imagen` text DEFAULT NULL,
   `descripcion` mediumtext NOT NULL,
   `precio` float NOT NULL,
   `cantidad` int(11) NOT NULL,
   `id_tipoprod` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `inventario`
+--
+
+INSERT INTO `inventario` (`id_producto`, `nombre`, `imagen`, `descripcion`, `precio`, `cantidad`, `id_tipoprod`) VALUES
+(1, 'Vela  Decorativa', 'oferta1.jpg', 'Este tipo de vela es para lo mas curiosos y con una personalidad única ', 3.99, 50, 4),
+(2, 'Vela Estandar', 'oferta2.jpg', 'Vela con aroma de manzanilla', 2.99, 100, 4),
+(3, 'Vela Catcus', 'oferta3.jpg', 'Vela cactus ideal para arreglo de regalos', 7.99, 200, 4),
+(4, 'Incienso Felicidad', 'incienso1.jpg', 'Incienso de Prosperidad(AMBAR)\r\nAtrae la prosperidad en su vida ', 11.99, 120, 2),
+(5, 'Incienso Almizcle', 'incienso2.jpg', 'Incienso enfocado especificamente a limpiar y purificar ', 15.99, 350, 2),
+(6, 'Incienso Aloe Vera', 'incienso3.jpg', 'Este incienso se caracteriza para concretar proyectos, para que todos las metas se materialicen ', 9.99, 400, 2),
+(7, 'Incienso Canela', 'incienso4.jpg', 'Se utiliza para aclarar ideas y así tomar una mejor decisión ', 5.99, 500, 2),
+(8, 'Incienso Clavel', 'incienso5.jpg', 'Es bueno para estudiar y reforzar el conocimiento ', 10.99, 700, 2),
+(9, 'Incienso Cereza', 'incienso6.jpg', 'Este tipo de incienso se utiliza para atraer y estimular el amor ', 7.99, 200, 2),
+(10, 'Vela Estandar ', 'Vela1.jpeg', 'Si estas buscando una Vela con aroma tropical esta tipo de vela es perfecta para ti con aroma a coco', 11.99, 450, 3),
+(11, 'Vela Estandar', 'Vela2.jpeg', 'Si lo que buscas es atraer la abundancia a tu hogar este tipo de vela es perfecta para ti , aroma a canela', 15.99, 700, 3),
+(12, 'Vela Nube', 'Vela3.jpeg', 'Esta vela esta diseñada para los mas divertidos y con un estilo único llama la atención con aroma a fresa viene a endulzar tus días ', 9.99, 200, 3),
+(13, 'Vela Frasco', 'Vela4.jpeg', 'Este tipo de vela se utiliza para aromatizar cualquier habitacion con un exquisito aroma ', 5.99, 200, 3),
+(14, 'Vela Estandar ', 'Vela5.jpeg', 'Si te gusta el campo esta vela es perfecta para ti ,su aroma es de tierra mojada ', 10.99, 100, 3),
+(15, 'Vela Infinita', 'Vela6.jpg', 'Esta vela es decorativa sin añadidos ,sin aroma,ni aceite ', 7.99, 200, 3),
+(16, 'Incienso Decorativo', 'oferta4.jpg', 'Incienso con fines decorativos', 0.99, 10, 4),
+(17, 'Incienso Canela', 'oferta5.jpg', 'Este incienso atrae la prosperidad', 1.99, 20, 4),
+(18, 'Colaboracion', 'minipost.gif', 'Colaboración entre keki market y velaroma', 15.99, 10, 4);
 
 -- --------------------------------------------------------
 
@@ -112,6 +143,16 @@ CREATE TABLE `tipo_insumo` (
   `tipo_insumo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tipo_insumo`
+--
+
+INSERT INTO `tipo_insumo` (`id_insumo`, `tipo_insumo`) VALUES
+(1, 'Producto'),
+(2, 'Aceite'),
+(3, 'Cera'),
+(4, 'Fragancia');
+
 -- --------------------------------------------------------
 
 --
@@ -122,6 +163,15 @@ CREATE TABLE `tipo_pedido` (
   `id_tipopedido` int(11) NOT NULL,
   `tipo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_pedido`
+--
+
+INSERT INTO `tipo_pedido` (`id_tipopedido`, `tipo`) VALUES
+(1, 'Estandar'),
+(2, 'Personalizado'),
+(3, 'Arreglo de Regalo');
 
 -- --------------------------------------------------------
 
@@ -134,6 +184,15 @@ CREATE TABLE `tipo_producto` (
   `tipo_producto` varchar(100) NOT NULL,
   `tipo_insumo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_producto`
+--
+
+INSERT INTO `tipo_producto` (`id_tipoprod`, `tipo_producto`, `tipo_insumo`) VALUES
+(2, 'Incienso', 1),
+(3, 'Vela', 1),
+(4, 'Oferta', 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +331,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_pedido`
@@ -290,7 +349,7 @@ ALTER TABLE `estado_transaccion`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
@@ -302,19 +361,19 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `tipo_insumo`
 --
 ALTER TABLE `tipo_insumo`
-  MODIFY `id_insumo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_insumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_pedido`
 --
 ALTER TABLE `tipo_pedido`
-  MODIFY `id_tipopedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tipopedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_producto`
 --
 ALTER TABLE `tipo_producto`
-  MODIFY `id_tipoprod` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tipoprod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
