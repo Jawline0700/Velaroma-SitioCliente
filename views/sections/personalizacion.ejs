@@ -1,15 +1,15 @@
 <div class="modal-contenedor">
-    <div class="modal-carrito">
-        <h3>Carrito</h3>
-        <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-        <div id="carrito-contenedor">
-        </div>
-        <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
-        <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
+  <div class="modal-carrito">
+      <h3>Carrito</h3>
+      <button id="carritoCerrar" data-dismiss="modal"><i class="fas fa-times-circle"></i></button>
+      <table class="show-cart table">
+      </table>
+      <p class="precioProducto">Precio total:$<span class="total-cart"></span></p>
+        <button class="clear-cart">Vaciar carrito</button>
         <form action="pagos">
-          <button  class="boton-pagar">Pagar</button>
-      </form>
-    </div>
+            <button  class="boton-pagar">Ordenar ahora</button>
+        </form>
+  </div>
 </div>
 
 <form action="personalizar" method="POST">
