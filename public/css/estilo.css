@@ -22,7 +22,7 @@
     background-color:#D8A2A2;
     color:white;
     font-size: 20px;
-  transform: translateY(-27%);
+  transform: translateY(-7%);
     height: 100px;
 
 }
@@ -86,7 +86,23 @@
    
 
 }
-.boton-agregar {
+
+.add-to-cart{
+    background-color: #D8A2A2;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 3px 15px;
+    margin: 2px 2px;
+    border-radius: 4px;
+    font-family:"Riwaya-Italic";
+    font-size: 15px;
+
+}
+
+.clear-cart{
     background-color: #D8A2A2;
     border: none;
     color: #FFFFFF;
@@ -99,12 +115,14 @@
     font-family:"Riwaya-Italic";
     font-size: 15px;
 }
-.boton-agregar:hover {
-    cursor: pointer;
+.add-to-cart:hover{
+    cursor: pointer; 
 }
-.boton-agregar:focus {
-    outline: none;
+
+.add-to-cart:focus{
+outline: none;
 }
+
 
 .modal-contenedor {
     position: fixed;
@@ -261,10 +279,12 @@ nav ul li:hover .submenu{display:block;
                     position:absolute;				    
                     z-index: 3;  
                     margin-top:0px;
+                    margin-left: 0;
                     }
-                    ul{margin:0;
+                    .submenu ul{margin:0;
                         padding:0;
-                        justify-content: center }            
+                        justify-content: center }   
+                                 
                                        
 
 body{
@@ -351,13 +371,13 @@ footer{
 * {
     box-sizing: border-box;
   }
-
+/*
 input[type=text], input[type=email],  input[type=number],select, textarea {
     padding: 12px;
     border: 1px solid black;
     border-radius: 4px;
     resize: vertical;
-  }
+  }*/
   
   label {
     padding: 12px;
@@ -418,3 +438,40 @@ input[type=text], input[type=email],  input[type=number],select, textarea {
     }
   }
 
+
+  .card-img-top {
+    width: 200px;
+    height: 200px;
+    align-self: center;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .item-count{  cursor: pointer;
+                text-align: center;
+                border-radius: 15px;}
+
+  .minus-item, .plus-item{
+            background-color: #D8A2A2;
+            border-radius: 5px;}
+
+  .minus-item:hover, .plus-item:hover{
+        background-color: rgb(255, 239, 250);}
+
+  .delete-item{height: 2rem;border-radius: 5px;
+                background-color: rgb(214, 94, 94)!important;
+                margin-right: 0.5rem;}
+
+  .delete-item:hover{height: 2rem;border-radius: 5px;
+                background-color: rgb(238, 118, 118)!important;}
+
+  .equis{
+        transform: translateY(-25%);
+        }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
