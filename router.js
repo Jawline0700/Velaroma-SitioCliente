@@ -103,5 +103,13 @@ router.get ("/",(req,res)=>{
       );
     });
 
+    const paymentControllers = require ('./controllers/payment.controller');
+
+    router.post('/create-order', paymentControllers.createOrder);
+
+    router.get('/capture-order', paymentControllers.captureOrder);
+
+    router.get('/cancel-order', paymentControllers.cancelOrder);
+
 
     module.exports = router;
