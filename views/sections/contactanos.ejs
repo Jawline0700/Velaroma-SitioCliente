@@ -1,32 +1,19 @@
-<div class="modal-contenedor">
-    <div class="modal-carrito">
-        <h3>Carrito</h3>
-        <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-        <div id="carrito-contenedor">
-        </div>
-        <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
-        <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
-        <form action="pagos">
-          <button  class="boton-pagar">Pagar</button>
-      </form>
-    </div>
-</div>
 
 <div class="modal-contenedor">
     <div class="modal-carrito">
         <h3>Carrito</h3>
-        <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-        <div id="carrito-contenedor">
-        </div>
-        <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
-        <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
-        
-        <form action="pagos">
-          <button  class="boton-pagar">Pagar</button>
-      </form>
+        <button id="carritoCerrar" data-dismiss="modal"><i class="fas fa-times-circle"></i></button>
+        <table class="show-cart table">
+        </table>
+        <p class="precioProducto">Precio total:$<span class="total-cart"></span></p>
+          <button class="clear-cart">Vaciar carrito</button>
+          <form action="pagos">
+              <button  class="boton-pagar">Ordenar ahora</button>
+          </form>
     </div>
 </div>
-<div class="container">
+
+<div class="container-contactos">
     <div class="left">
         <h2 class="titulo">REDES SOCIALES</h2>
         <img src="../img/inicio.gif " width="700px" height="400px">
@@ -34,42 +21,6 @@
     <div class="right">
         <form action="#" method="POST">
             <h2 class="titulo">CONTACTANOS</h2>
-        <div class="row">
-            <div class="col-25">
-              <label for="nombre">Nombre</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="name" name="Nombre" placeholder="Nombre Completo.." required autofocus>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="correo">Correo</label>
-            </div>
-            <div class="col-75">
-              <input type="email" id="correo" name="correo" placeholder="Alguien@Example.com" required autofocus>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="telefono">Telefono</label>
-            </div>
-            <div class="col-75">
-                <input type="number" id="numero" placeholder="(6666-9999)">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="mensaje">Mensaje</label>
-            </div>
-            <div class="col-75">
-              <textarea id="mensaje" placeholder="Hola todo bien?.." style="height:200px"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <input type="submit" id="boton-enviar" value="Submit" onclick="hizoClick()">
-          </div>
-          <br>
-        </form>
+      
     </div>
-</div>
+    </div>

@@ -1,65 +1,65 @@
 <div class="modal-contenedor">
-    <div class="modal-carrito">
-        <h3>Carrito</h3>
-        <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-        <div id="carrito-contenedor">
-        </div>
-        <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
-        <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
+  <div class="modal-carrito">
+      <h3>Carrito</h3>
+      <button id="carritoCerrar" data-dismiss="modal"><i class="fas fa-times-circle"></i></button>
+      <table class="show-cart table">
+      </table>
+      <p class="precioProducto">Precio total:$<span class="total-cart"></span></p>
+        <button class="clear-cart">Vaciar carrito</button>
         <form action="pagos">
-          <button  class="boton-pagar">Pagar</button>
-      </form>
-    </div>
+            <button  class="boton-pagar">Ordenar ahora</button>
+        </form>
+  </div>
 </div>
 
 <form action="personalizar" method="POST">
     <div class="container_personal">
         <div class="left">
                 <h2 class="titulo">DISEÑOS</h2>
+
+
+
                 <div class="row">
-                    <div class="col-25">
-                      <label for="design1">Diseño 1</label>
-                    </div>
-                    <div class="col-75">
-                        <button id="0" type="button"  class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                    </div>
+                  <div class="col-25">
+                    <label for="design1">Diseño 1</label>
                   </div>
-                  <div class="row">
-                    <div class="col-25">
-                      <label for="design2">Diseño 2</label>
-                    </div>
-                    <div class="col-75">
-                        <button id="1" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                    </div>
+                  <div class="col-75">
+                      <button id="0" type="button"  class="btname" onclick="cambioImagen(this.id)">Ver</button>
                   </div>
-                  <div class="row">
-                    <div class="col-25">
-                      <label for="design3">Diseño 3</label>
-                    </div>
-                    <div class="col-75">
-                        <button id="2" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="design2">Diseño 2</label>
                   </div>
-                  <div class="row">
-                    <div class="col-25">
-                      <label for="design4">Diseño 4</label>
-                    </div>
-                    <div class="col-75">
-                        <button id="3" type="button"class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                    </div>
+                  <div class="col-75">
+                      <button id="1" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
                   </div>
-                  <div class="row">
-                    <div class="col-25">
-                      <label for="design5">Diseño 5</label>
-                    </div>
-                    <div class="col-75">
-                        <button id="4" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="design3">Diseño 3</label>
                   </div>
-
-            
+                  <div class="col-75">
+                      <button id="2" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="design4">Diseño 4</label>
+                  </div>
+                  <div class="col-75">
+                      <button id="3" type="button"class="btname" onclick="cambioImagen(this.id)">Ver</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="design5">Diseño 5</label>
+                  </div>
+                  <div class="col-75">
+                      <button id="4" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
+                  </div>
+                </div>
         </div>
-
         <div class="center">
             <div class="img-center">
                 <label><img src="../img/Vela1.jpeg" width="500px" height="500px" id="foto"></label>
@@ -73,7 +73,7 @@
                   <label for="smells1">Aroma 1</label>
                 </div>
                 <div class="col-75">
-                  <button type="button" class="btname" onclick="aromaClick()">Añadir</button>
+                  <button id="01" type="button" class="btname" onclick="aromaClick()">Añadir</button>
                 </div>
               </div>
               <div class="row">
@@ -81,7 +81,7 @@
                   <label for="smells2">Aroma 2</label>
                 </div>
                 <div class="col-75">
-                  <button type="button" class="btname" onclick="aromaClick()">Añadir</button>
+                  <button id="02" type="button" class="btname" onclick="aromaClick()">Añadir</button>
                 </div>
               </div>
               <div class="row">
@@ -89,7 +89,7 @@
                   <label for="smells3">Aroma 3</label>
                 </div>
                 <div class="col-75">
-                  <button type="button" class="btname" onclick="aromaClick()">Añadir</button>
+                  <button id="03" type="button" class="btname" onclick="aromaClick()">Añadir</button>
                 </div>
               </div>
               <div class="row">
@@ -97,14 +97,11 @@
                   <label for="smells4">Aroma 4</label>
                 </div>
                 <div class="col-75">
-                  <button type="button"class="btname" onclick="aromaClick()">Añadir</button>
+                  <button  id="04" type="button"class="btname" onclick="aromaClick()">Añadir</button>
                 </div>
               </div>
         </div>
     
     </div>
-    <div class="row">
-        <input type="submit" id="boton-enviar" class="btname" value="ENVIAR" onclick="hizoClick()">
-    </div>
-
+        <input type="submit" id="boton-enviar"  value="Añadir al Carrito" onclick="hizoClick()">
     </form>
