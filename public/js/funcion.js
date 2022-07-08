@@ -1,36 +1,24 @@
 
-        function hizoClick() {
-            alert("Pedido añadido con exito :)"); 
-        }
+        $('.add-to-cart').click(function(event){
+          event.preventDefault();
+          alert('Producto agregado con exito')
+        })
 
-        function aromaClick() {
-            alert("Añadido :)"); 
-        }
+        
 
-        function cambioImagen (id) {
+
+           function cambioImagen (id){
+           var imagen = $("input[name=diseño]:checked").val();
+            console.log(imagen)
             var images = new Array();
-
-            images[0] = new Image();
-            images[0].src = '../img/Vela1.jpeg';
-
-            images[1] = new Image();
-            images[1].src = '../img/Vela2.jpeg';
-
-            images[2] = new Image();
-            images[2].src = '../img/Vela3.jpeg';
-
-            images[3] = new Image();
-            images[3].src = '../img/Vela4.jpeg';
-
-            images[4] = new Image();
-            images[4].src = '../img/Vela5.jpeg';
-
-            const center = document.querySelector('.center')
-            for(let i=0; i <= images.length; i++) {
+            images[id] = new Image();
+            console.log(images[id].src = '../img/'+imagen);
+            for(let i=0;i<=images.length;i++){
                 if (id == [i])
-                 var img = document.getElementById("foto").src = images[i].src; 
-                }
+                var img = document.getElementById("foto").src = images[i].src; 
             }
+
+             }
 
             function validar() {
                 let nombre = document.getElementById("name").value;
@@ -46,3 +34,17 @@
                     }
                 }
               }
+
+function procesar(){
+   var id_tipoprod = document.getElementById('id_producto').value;
+   var nombre1 = document.getElementById('nombre').value;
+   var  precio = document.getElementById('precio').value;
+   var  nombre2 = document.getElementById('nombrepro').value;
+   var precio2 = document.getElementById('preciopro').value;
+   var nombre_final = nombre1+ '+'+ nombre2;
+   var precio_final = Number.parseFloat(precio) + Number.parseFloat(precio2);
+   agregarproducto(id_tipoprod,nombre_final,precio_final);
+
+
+  
+}

@@ -12,96 +12,62 @@
   </div>
 </div>
 
-<form action="personalizar" method="POST">
     <div class="container_personal">
         <div class="left">
-                <h2 class="titulo">DISEÑOS</h2>
-
-
-
-                <div class="row">
-                  <div class="col-25">
-                    <label for="design1">Diseño 1</label>
-                  </div>
-                  <div class="col-75">
-                      <button id="0" type="button"  class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="design2">Diseño 2</label>
-                  </div>
-                  <div class="col-75">
-                      <button id="1" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="design3">Diseño 3</label>
-                  </div>
-                  <div class="col-75">
-                      <button id="2" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="design4">Diseño 4</label>
-                  </div>
-                  <div class="col-75">
-                      <button id="3" type="button"class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="design5">Diseño 5</label>
-                  </div>
-                  <div class="col-75">
-                      <button id="4" type="button" class="btname" onclick="cambioImagen(this.id)">Ver</button>
-                  </div>
-                </div>
+          <form> 
+            <fieldset><h2 class="titulo">DISEÑOS</h2>
+            <% results.forEach((inventario)=>{%>
+              <div class="izquierda">
+                 <p ><%=inventario.nombre %></p>
+                 <p>(Precio:<%=inventario.precio%>) </p>
+                 </div>
+        <div class="izquierda"> 
+        <div class="radiodperso">
+        <label>Visualizar</label><input id="<%=inventario.id_producto%>"type="radio" name="diseño" value="<%=inventario.imagen%>"onclick="cambioImagen(this.id)" required>
+         <input type="hidden"value="<%=inventario.id_producto%>" id="id_producto">
+         <input type="hidden"value="<%=inventario.nombre%>" id="nombre">
+         <input type="hidden"value ="<%=inventario.precio%>" id="precio">
+        <br>
+        <br>
+   </div>
+</div>
+            <% })  %>
+          
+  </div>
+  <div class="center">
+      <div class="img-center">
+          <label><img id="foto" class="card-imagen"src="../img/diseño1.jpg"></label>
+      </div>
+  </div>
+  <div class="right">
+      <h2 class="titulo">AROMAS</h2>
+      <% fragancias.forEach((aroma)=>{%>
+        <div class="derecha"> 
+          <br>
+          <br>
+        <p><%=aroma.nombre %></p>
+        <p>(Precio:<%=aroma.precio%>) </p>
         </div>
-        <div class="center">
-            <div class="img-center">
-                <label><img src="../img/Vela1.jpeg" width="500px" height="500px" id="foto"></label>
+        <br>
+        <div class="izquierda">
+          <div class="radiodperso">
+            <label>Seleccionar</label><input id="<%=aroma.id_producto%>"type="radio" name="aroma"  class="a" required>
+            <input type="hidden" value="<%=aroma.nombre%>" id="nombrepro">
+            <input type="hidden" value="<%=aroma.precio%>"id="preciopro">
             </div>
         </div>
+        <br>
+        <br>
+      <% })  %>
+      <input type="submit" id="agregabtn" name="agregapersonaliza" value="Añadir al carrito" onclick="procesar()">
+      
+  </div>
 
-        <div class="right">
-            <h2 class="titulo">AROMAS</h2>
-            <div class="row">
-                <div class="col-25">
-                  <label for="smells1">Aroma 1</label>
-                </div>
-                <div class="col-75">
-                  <button id="01" type="button" class="btname" onclick="aromaClick()">Añadir</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-25">
-                  <label for="smells2">Aroma 2</label>
-                </div>
-                <div class="col-75">
-                  <button id="02" type="button" class="btname" onclick="aromaClick()">Añadir</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-25">
-                  <label for="smells3">Aroma 3</label>
-                </div>
-                <div class="col-75">
-                  <button id="03" type="button" class="btname" onclick="aromaClick()">Añadir</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-25">
-                  <label for="smells4">Aroma 4</label>
-                </div>
-                <div class="col-75">
-                  <button  id="04" type="button"class="btname" onclick="aromaClick()">Añadir</button>
-                </div>
-              </div>
-        </div>
-    
+  
+  </div>
+  
+           </fieldset>
+        </form>
+     
     </div>
-        <input type="submit" id="boton-enviar"  value="Añadir al Carrito" onclick="hizoClick()">
-    </form>
+       

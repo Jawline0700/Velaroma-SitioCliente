@@ -54,6 +54,7 @@
     max-width: 1200px;
     margin: 40px auto;
     display: flex;
+    font-family:"Riwaya-Italic";
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -62,6 +63,7 @@
     max-width: 30%;
     padding: 40px;
     margin: 10px;
+    font-family:"Riwaya-Italic";
     background-color: #FFFFFF;
     margin-bottom: 20px;
     box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
@@ -386,13 +388,13 @@ input[type=text], input[type=email],  input[type=number],select, textarea {
   
   .btname{
     font-family:"Riwaya-Italic";
-    background-color: #D8A2A2;
+    background-color: #A48B8B;
     color: white;
     padding: 12px 20px;
     border: 2px solid white;
     border-radius: 4px;
+    width:55%;
     cursor: pointer;
-    float: right;
     
   }
 
@@ -445,6 +447,12 @@ input[type=text], input[type=email],  input[type=number],select, textarea {
     align-self: center;
   }
 
+  .card-imagen{
+    width: 400px;
+    height:400px;
+    align-self: center;
+  }
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -475,3 +483,39 @@ input[type=text], input[type=email],  input[type=number],select, textarea {
   input[type=number] {
     -moz-appearance: textfield;
   }
+
+  .diseños {
+    text-align: center;
+    display: flex;
+  }
+
+  .izquierda{
+  font-size: 18px;
+  font-family:"Riwaya-Italic";
+  font-weight: bold;
+  display:flex;
+  margin-left: 20%;
+  align-items:center;
+
+  }
+
+  .ver{
+    display:flex;
+  flex-direction:column;
+  margin-left: 10%;
+  padding-bottom:5%;
+  text-align: center;
+
+
+  }
+
+  .derecha{
+    font-size: 18px;
+    font-family:"Riwaya-Italic";
+    font-weight: bold;
+    display:flex;
+    margin-left: 20%;
+    align-items:center;
+  
+  }
+
