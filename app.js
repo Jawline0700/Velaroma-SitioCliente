@@ -1,8 +1,12 @@
+require('dotenv').config({path: './.env'});
+
 var express = require("express"),
 ejs = require ("ejs");
 const morgan = require('morgan');
 const conexion = require('./database/db');
-const {PORT} = require('./config');
+
+
+const {PORT} = process.env;
 
 
 var app = express();
@@ -13,7 +17,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use('/', require('./router'));
 
-app.set("port", process.env.PORT || PORT);
+app.set("port", PORT || 4000);
 
 app.listen(app.get("port"), function() {
   console.log(

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const conexion = require('./database/db');
-
+const {PAYPAL_API_CLIENT} = process.env;
 
 router.get ("/",(req,res)=>{
     conexion.query('SELECT * FROM inventario WHERE id_tipoprod = 4',(error,results)=>{
@@ -103,7 +103,8 @@ router.get ("/",(req,res)=>{
       res.render(
         "index",
         {
-          pagina: 7
+          pagina: 7,
+          PAYPAL_API_CLIENT: PAYPAL_API_CLIENT,
         },
         function(err, html) {
           if (err) throw err;
@@ -112,13 +113,6 @@ router.get ("/",(req,res)=>{
       );
     });
 
-    const paymentControllers = require ('./controllers/payment.controller');
-
-    router.post('/create-order', paymentControllers.createOrder);
-
-    router.get('/capture-order', paymentControllers.captureOrder);
-
-    router.get('/cancel-order', paymentControllers.cancelOrder);
 
 
     module.exports = router;
