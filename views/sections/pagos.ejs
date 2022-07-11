@@ -12,97 +12,78 @@
   </div>
 </div>
 
-<div class="container">
-    <div class="left">
-        <form action="#" method="POST">
-            <h2 class="titulo">INFORMACION DE CONTACTO</h2>
-            <div class="row">
-                <div class="col-25">
-                  <label for="nombre">Nombre</label>
-                </div>
-                <div class="col-75">
-                  <input type="text" id="name" placeholder="Nombre Completo.." required autofocus>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-25">
-                  <label for="correo">Correo</label>
-                </div>
-                <div class="col-75">
-                  <input type="email" id="email" placeholder="Alguien@Example.com" required autofocus>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-25">
-                  <label for="direccion">Direccion</label>
-                </div>
-                <div class="col-75">
-                  <input type="text" id="adress" placeholder="Ciudad de Panamá..">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-25">
-                  <label for="postal">Codigo Postal</label>
-                </div>
-                <div class="col-75">
-                    <input type="number" id="postalAdress" placeholder="(6666-9999)">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-25">
-                  <label for="city">Ciudad</label>
-                </div>
-                <div class="col-75">
-                  <input type="text" id="city" placeholder="Ciudad de Panamá..">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-25">
-                  <label for="region">Region</label>
-                </div>
-                <div class="col-75">
-                  <input type="text" id="region" placeholder="Veraguas.." required autofocus>
-                </div>
-              </div>
-              <input type="checkbox" id="gift" value="">
-              <label for="gift">Enviar como regalo</label><br>
-              <div class="row">
-                <input type="submit" id="boton-enviar" value="Submit" onclick="validar()">
-              </div>
-              <br>
-        </form>
-    </div>
-    <div class="right">
-        <h2 class="titulo">Resumen de Pedido</h2>
-        <div class="row">
-            <div class="col-25">
-                <label ><img src="../img/Vela1.jpeg" width="200px"></label>
-              </div>
-            <div class="col-75">
-             
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-75">
-              <label >Vela con aroma a coco</label>
-              <label >10.00$</label>
-              <br>
-                <label>Subtotal</label>
-                <label>10.00$</label>
-                <br>
-                <br>
-                <label>Total</label>
-                <label>10.00$</label>
-            </div>
-        </div>
-        
-    </div>
+<div class="container-contactos">
+  <form class="container-pagos" method="POST">
+  <div class="titulo">
+  <h3>INFORMACION DEL CONTACTO</h3>
+  <br>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder=" " 
+    id="name" name="name" >
+    <label for="name" class="form-label">Your Name</label>
+  </div>
+  
+  <div class="form-group">
+    <input type="email" class="form-control" placeholder=" " 
+    id="email" name="email">
+    <label for="email" class="form-label">Your Email</label>
+  </div>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=<%= PAYPAL_API_CLIENT %>&currency=USD&disable-funding=card,credit"></script>
-    <script defer src="js/paymentButton.js"></script>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder=" " 
+    id="adress" name="adress" >
+    <label for="adress" class="form-label">Your Adress</label>
+  </div>
 
-    <div id="paypal-button"></div> 
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder=" " 
+    id="city" name="city" >
+    <label for="city" class="form-label">Your City</label>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder=" " 
+    id="region" name="region" >
+    <label for="region" class="form-label">Your Region</label>
+  </div>
+
+  <div class="form-group">
+    <input type="checkbox" id="gift" value="">
+    <label for="gift">Enviar como regalo</label><br>
+  </div>
+  <input type="submit" id="boton-enviar"  value="Siguiente" onclick="hizoClick()">
+  </form>
+
+      <h3>RESUMEN DEL PEDIDO</h3>
+      <br>
+      <main id="resumen">
+      </main>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script src="https://www.paypal.com/sdk/js?client-id=<%= PAYPAL_API_CLIENT %>&currency=USD&disable-funding=card,credit"></script>
+<script defer src="js/paymentButton.js"></script>
+
+<div id="paypal-button"></div> 
     
 </div>
-
 
