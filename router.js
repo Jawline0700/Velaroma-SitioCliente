@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const conexion = require('./database/db');
+const paypal = require('./public/js/paymentController');
 const {PAYPAL_API_CLIENT} = process.env;
 
 router.get ("/",(req,res)=>{
@@ -43,8 +44,6 @@ router.get ("/",(req,res)=>{
   
     })
   })
-  
-  
   
     
   router.get ("/incienso",(req,res)=>{
@@ -112,7 +111,25 @@ router.get ("/",(req,res)=>{
         }
       );
     });
+//-------------------------------------------------------------------------------------
+router.post("/api/orders", async (req, res) => {
+  try {
+    const order = await paypal.createOrder();
+    res.json(order);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
+router.post("/api/orders/:orderID/capture", async (req, res) => {
+  const { orderID } = req.params;
+  try {
+    const captureData = await paypal.capturePayment(orderID);
+    res.json(captureData);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
 
     module.exports = router;
