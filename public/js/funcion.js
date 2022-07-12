@@ -4,9 +4,13 @@
             console.log(imagen)
             var images = new Array();
             images[id] = new Image();
+            images[id].src = '../img/'+imagen;
+            console.log(images[id].src);
             for(let i=0;i<=images.length;i++){
-                if (id == [i])
-                var img = document.getElementById("foto").src = images[i].src; 
+                if (id == [i]){
+                  var img = document.getElementById("foto").src = images[i].src;
+                }
+                
             }
 
              }
@@ -35,7 +39,4 @@ function procesar(){
    var nombre_final = nombre1+ '+'+ nombre2;
    var precio_final = Number.parseFloat(precio) + Number.parseFloat(precio2);
    agregarproducto(id_tipoprod,nombre_final,precio_final);
-
-
-  
 }

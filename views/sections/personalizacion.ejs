@@ -36,12 +36,13 @@
   </div>
   <div class="center">
       <div class="img-center">
-          <label><img id="foto" class="card-imagen"src="../img/diseño1.jpg"></label>
+          <label><img id="foto" class="card-imagen"src="../img/diseno1.jpg"></label>
       </div>
   </div>
   <div class="right">
       <h2 class="titulo">AROMAS</h2>
-      <% fragancias.forEach((aroma)=>{%>
+      <% console.log(fragancias);
+      fragancias.forEach((aroma)=>{%>
         <div class="derecha"> 
           <br>
           <br>
@@ -51,7 +52,8 @@
         <br>
         <div class="izquierda">
           <div class="radiodperso">
-            <label>Seleccionar</label><input id="<%=aroma.id_producto%>"type="radio" name="aroma"  class="a" required>
+            <label>Seleccionar</label>
+            <input id="<%=aroma.id_producto%>"type="radio" name="aroma"  class="a" required>
             <input type="hidden" value="<%=aroma.nombre%>" id="nombrepro">
             <input type="hidden" value="<%=aroma.precio%>"id="preciopro">
             </div>
@@ -60,12 +62,8 @@
         <br>
       <% })  %>
       <input type="submit" id="agregabtn" name="agregapersonaliza" value="Añadir al carrito" onclick="procesar()">
-      
   </div>
-
-  
   </div>
-  
            </fieldset>
         </form>
      
