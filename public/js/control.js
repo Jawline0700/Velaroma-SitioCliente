@@ -155,7 +155,7 @@ console.log(shoppingCart.listCart());
   const divpago = document.createElement("div");
   try{
     const shopCart = shoppingCart.listCart().map(function(element){
-      return `<p>${element.name}</p> <p>${element.price}</p> <p>${element.count}</p>`;
+      return `<p>Nombre:${element.name}</p> <p>Precio:${element.price}</p> <p>CantidadxProducto:${element.count}</p>`;
     })
   total = shoppingCart.totalCart();
   itbms = shoppingCart.totalCart()*0.07;
