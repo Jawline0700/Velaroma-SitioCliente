@@ -1,18 +1,9 @@
 
-        $('.add-to-cart').click(function(event){
-          event.preventDefault();
-          alert('Producto agregado con exito')
-        })
-
-        
-
-
            function cambioImagen (id){
            var imagen = $("input[name=diseño]:checked").val();
             console.log(imagen)
             var images = new Array();
             images[id] = new Image();
-            console.log(images[id].src = '../img/'+imagen);
             for(let i=0;i<=images.length;i++){
                 if (id == [i])
                 var img = document.getElementById("foto").src = images[i].src; 

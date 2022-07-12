@@ -21,46 +21,47 @@
   <div class="form-group">
     <input type="text" class="form-control" placeholder=" " 
     id="name" name="name" >
-    <label for="name" class="form-label">Your Name</label>
+    <label for="name" class="form-label">Nombre:</label>
   </div>
   
   <div class="form-group">
     <input type="email" class="form-control" placeholder=" " 
     id="email" name="email">
-    <label for="email" class="form-label">Your Email</label>
+    <label for="email" class="form-label">Email:</label>
   </div>
 
   <div class="form-group">
     <input type="text" class="form-control" placeholder=" " 
     id="adress" name="adress" >
-    <label for="adress" class="form-label">Your Adress</label>
+    <label for="adress" class="form-label">Descripcion</label>
   </div>
 
   <div class="form-group">
     <input type="text" class="form-control" placeholder=" " 
     id="city" name="city" >
-    <label for="city" class="form-label">Your City</label>
+    <label for="city" class="form-label">Ciudad</label>
   </div>
 
   <div class="form-group">
     <input type="text" class="form-control" placeholder=" " 
     id="region" name="region" >
-    <label for="region" class="form-label">Your Region</label>
+    <label for="region" class="form-label">Provincia</label>
   </div>
 
   <div class="form-group">
     <input type="checkbox" id="gift" value="">
     <label for="gift">Enviar como regalo</label><br>
   </div>
-  <input type="submit" id="boton-enviar"  value="Siguiente" onclick="hizoClick()">
+  <div class="form-group">
+  <button type="submit"  value="">Enviar</button>
+  </div>
   </form>
 
       <h3>RESUMEN DEL PEDIDO</h3>
       <br>
-      <main id="resumen">
-      </main>
+      <div id="order">
 
-
+      </div>
 <br>
 <br>
 <br>
@@ -82,6 +83,7 @@
 
 <script src="https://www.paypal.com/sdk/js?client-id=<%= PAYPAL_API_CLIENT %>&currency=USD&disable-funding=card,credit"></script>
 <script defer src="js/paymentButton.js"></script>
+<script src="js/control.js"></script>
 
 <div id="paypal-button"></div> 
     

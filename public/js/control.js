@@ -1,7 +1,7 @@
 // ************************************************
 // Shopping Cart API
 // ************************************************
-const contenedor = document.getElementById('resumen')
+
 var shoppingCart = (function () {
   // =============================
   // Private methods and propeties
@@ -144,17 +144,35 @@ var shoppingCart = (function () {
 $('.add-to-cart').click(function (event) {
   event.preventDefault();
   var id = $(this).data('id')
-  alert(typeof (id));
   var name = $(this).data('name');
   var price = Number($(this).data('price'));
+  alert('Producto agregado con exito')
   shoppingCart.addItemToCart(id, name, price, 1);
   displayCart();
 });
 
+console.log(shoppingCart.listCart());
+  const divpago = document.createElement("div");
+  try{
+    const shopCart = shoppingCart.listCart().map(function(element){
+      return `<p>${element.name}</p> <p>${element.price}</p> <p>${element.count}</p>`;
+    })
+  total = shoppingCart.totalCart();
+  itbms = shoppingCart.totalCart()*0.07;
+  itbms_final = itbms.toFixed(2);
+  totalfinal = shoppingCart.totalCart()+itbms;
+  preciofinal = totalfinal.toFixed(2);
+  const respuesta = `<div> <tr>${shopCart}</tr> <p>Subtotal: ${total}</p><p>ITBMS: ${itbms_final}<p>Total a pagar: ${preciofinal}</p> </div>`;
+  console.log(`${respuesta}`);
+ document.getElementById('order').innerHTML= `${respuesta}`;
+  }catch(error){
+    console.log(error);
+  }
+ 
+
 function agregarproducto(id, nombre, precio) {
   var idfinal = Number(id)
   shoppingCart.addItemToCart(idfinal, nombre, precio, 1);
-  alert(Object.values(cartArray));
 }
 
 
@@ -185,22 +203,6 @@ function displayCart() {
   $('.total-count').html(shoppingCart.totalCount());
 }
 
-  const div = document.createElement('div');
-  var opciones = ""
-  shoppingCart.listCart().forEach(function (i) {
-    opciones += "<p>" + i.name + "</p>"
-      + "<p> Precio:" + i.price + "</p>"
-      + "<p> Cantidad Producto:" + i.count + "</p>"
-  });
-  total = shoppingCart.totalCart();
-  itbms = shoppingCart.totalCart()*0.07;
-  itbms_final = itbms.toFixed(2);
-  totalfinal = shoppingCart.totalCart()+itbms;
-  preciofinal = totalfinal.toFixed(2);
-
-  div.innerHTML = `<tr>` + opciones + `</tr> <p>Subtotal:`+total+`</p><p>ITBMS:`+itbms_final+`<p>Total a pagar:`+preciofinal+`</p>`
-
-  contenedor.appendChild(div);
 
 
 
