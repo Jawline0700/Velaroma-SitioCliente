@@ -40,3 +40,4 @@ function procesar(){
    var precio_final = Number.parseFloat(precio) + Number.parseFloat(precio2);
    agregarproducto(id_tipoprod,nombre_final,precio_final);
 }
+

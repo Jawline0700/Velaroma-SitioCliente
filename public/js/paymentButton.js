@@ -4,8 +4,10 @@ paypal.Buttons({
       return actions.order.create({
         purchase_units: [{
           amount: {
-            value: '77.44' // Can also reference a variable or function
-          }
+            value: almacenar_total()// Can also reference a variable or function
+          }, 
+          description: "Compra-VelaAroma",
+          tax_total: impuesto()
         }]
       });
     },

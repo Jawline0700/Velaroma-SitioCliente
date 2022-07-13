@@ -153,6 +153,8 @@ $('.add-to-cart').click(function (event) {
 
 console.log(shoppingCart.listCart());
   const divpago = document.createElement("div");
+  divpago.classList.add('totalpago')
+
   try{
     const shopCart = shoppingCart.listCart().map(function(element){
       return `<p>Nombre:${element.name}</p> <p>Precio:${element.price}</p> <p>CantidadxProducto:${element.count}</p>`;
@@ -173,8 +175,26 @@ console.log(shoppingCart.listCart());
 function agregarproducto(id, nombre, precio) {
   var idfinal = Number(id)
   shoppingCart.addItemToCart(idfinal, nombre, precio, 1);
+  alert("Producto agregado con exito");
 }
 
+
+
+
+function almacenar_total(){
+  total = shoppingCart.totalCart();
+  itbms = shoppingCart.totalCart()*0.07;
+  itbms_final = itbms.toFixed(2);
+  totalfinal = shoppingCart.totalCart()+itbms;
+  preciofinal = totalfinal.toFixed(2);
+  return preciofinal;
+}
+
+function impuesto(){
+   itbms = shoppingCart.totalCart()*0.07;
+   itbms_final = itbms.toFixed(2);
+   return itbms_final;
+}
 
 // Clear items
 $('.clear-cart').click(function () {
@@ -201,6 +221,58 @@ function displayCart() {
   $('.show-cart').html(output);
   $('.total-cart').html(shoppingCart.totalCart());
   $('.total-count').html(shoppingCart.totalCount());
+}
+
+function obtenerdatos(){
+  var nombre = document.getElementById('name').value;
+  var apellido = document.getElementById('apellido').value;
+  var correo = document.getElementById('email').value;
+  var numero1 = document.getElementById('numero1').value;
+  var numero2 = document.getElementById('numero2').value
+  var direccion = document.getElementById('direccion').value;
+  var radio = Number.parseInt(document.getElementById('gift').value);
+  var aux = " "
+  if($('#gift').prop('checked')){
+    aux = "3"
+  }else{
+    aux ="1";
+  }
+   var monto = almacenar_total();
+   try{
+    var cartArray = shoppingCart.listCart();
+    var output = "";
+    for (var i in cartArray) {
+      output += "-Nombre: " + cartArray[i].name + "-Cantidad: " + cartArray[i].count;
+    }
+    var opc = {
+      name: nombre,
+      lastname: apellido,
+      email: correo,
+      tel1: numero1,
+      tel2: numero2,
+      dir:direccion,
+      tipo:aux,
+      total:monto,
+      desc:output
+    }
+    alert("Pedido ingresado correctamente");
+    var cadena = JSON.stringify(opc);
+    fetch("http://localhost:3000/pagos",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:cadena
+    })
+
+   
+   }catch(error){
+    console.log(error);
+   }
+
+
+
+
 }
 
 
