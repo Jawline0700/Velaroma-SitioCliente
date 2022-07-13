@@ -153,7 +153,7 @@ $('.add-to-cart').click(function (event) {
 
 console.log(shoppingCart.listCart());
   const divpago = document.createElement("div");
-  divpago.classList.add('totalpago')
+  divpago.classList.add('qtotalpago')
 
   try{
     const shopCart = shoppingCart.listCart().map(function(element){
@@ -232,47 +232,49 @@ function obtenerdatos(){
   var direccion = document.getElementById('direccion').value;
   var radio = Number.parseInt(document.getElementById('gift').value);
   var aux = " "
-  if($('#gift').prop('checked')){
-    aux = "3"
+
+  if(shoppingCart.listCart>0){
+    if($('#gift').prop('checked')){
+      aux = "3"
+    }else{
+      aux ="1";
+    }
+     var monto = almacenar_total();
+     try{
+      var cartArray = shoppingCart.listCart();
+      var output = "";
+      for (var i in cartArray) {
+        output += "-Nombre: " + cartArray[i].name + "-Cantidad: " + cartArray[i].count;
+      }
+      var opc = {
+        name: nombre,
+        lastname: apellido,
+        email: correo,
+        tel1: numero1,
+        tel2: numero2,
+        dir:direccion,
+        tipo:aux,
+        total:monto,
+        desc:output
+      }
+      alert("Pedido ingresado correctamente");
+      var cadena = JSON.stringify(opc);
+      fetch("http://localhost:3000/pagos",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:cadena
+      })
+  
+     
+     }catch(error){
+      console.log(error);
+     }  
   }else{
-    aux ="1";
+    alert("Agregue un producto para poder hacer un pedido");
   }
-   var monto = almacenar_total();
-   try{
-    var cartArray = shoppingCart.listCart();
-    var output = "";
-    for (var i in cartArray) {
-      output += "-Nombre: " + cartArray[i].name + "-Cantidad: " + cartArray[i].count;
-    }
-    var opc = {
-      name: nombre,
-      lastname: apellido,
-      email: correo,
-      tel1: numero1,
-      tel2: numero2,
-      dir:direccion,
-      tipo:aux,
-      total:monto,
-      desc:output
-    }
-    alert("Pedido ingresado correctamente");
-    var cadena = JSON.stringify(opc);
-    fetch("http://localhost:3000/pagos",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-      },
-      body:cadena
-    })
-
-   
-   }catch(error){
-    console.log(error);
-   }
-
-
-
-
+ 
 }
 
 
