@@ -336,14 +336,7 @@ footer{
     padding: 0;
 }
 
-.container_personal{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 5%;
-    font-family:"Riwaya-Italic";
-    border-radius: 5px;
-    padding: 20px;
-}
+
 
 .container-contactos{
     display: grid;
@@ -354,23 +347,25 @@ footer{
 
 }
 
-.left {
-    background-color: #D8A2A2;
-    border-radius: 5px;
-}
+
 
 .right {
     background-color: #f2f2f2;
     border-radius: 5px;
+    padding-top: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
-.center{
+.right-pago {
+  background-color: #f2f2f2;
   border-radius: 5px;
-  border:1px solid black;
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  width: 40vw;
+  padding-top: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
+
 
 * {
     box-sizing: border-box;
@@ -417,7 +412,35 @@ input[type=text], input[type=email],  input[type=number],select, textarea {
     width: 70%;
     margin-top: 6px;
   }
-  
+  .container {
+    margin: 5%;
+  }
+
+  .col-4#right {
+    background-color: #f2f2f2;
+    padding-top: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 5px;
+  }
+
+  .col-4#left {
+    background-color: #D8A2A2;
+    padding-top: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 5px;
+  }
+
+  .col-4#center {
+    background-color: white;
+    border-radius: 5px;
+    border:1px solid black;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
   /* Clear floats after the columns */
   .row:after {
     content: "";
@@ -444,6 +467,8 @@ input[type=text], input[type=email],  input[type=number],select, textarea {
     width: 400px;
     height:400px;
     align-self: center;
+    border-radius: 5px;
+
   }
 
   input::-webkit-outer-spin-button,
@@ -578,4 +603,33 @@ input[type=text], input[type=email],  input[type=number],select, textarea {
 
 .form-group:focus-within{
     transform: scale(1.01,1.01);
+}
+
+
+.totalpago {
+  background-color: none;
+    border: none;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 3px 15px;
+    margin: 2px 2px;
+    border-radius: 4px;
+    font-family:"Riwaya-Italic";
+    font-size: 20px;
+}
+
+.totalpago-subtotal {
+  background-color: none;
+    border: none;
+    color: black;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 3px 15px;
+    margin: 2px 2px;
+    border-radius: 4px;
+    font-family:"Riwaya-Italic";
+    font-size: 23px;
 }

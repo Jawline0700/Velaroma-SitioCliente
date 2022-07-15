@@ -19,32 +19,39 @@
   <br>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Nombre" id="name" name="nombre" required>
-    <label for="name" class="form-label"></label>
+    <input type="text" class="form-control" placeholder=" " 
+    id="name" name="nombre" required>
+    <label for="name" class="form-label">First Name</label>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder=" " 
+    id="apellido" name="apellido" required>
+    <label for="apellido" class="form-label">Last Name</label>
   </div>
   
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Apellido" id="apellido" name="apellido" required>
-    <label for="apellido" class="form-label"></label>
+    <input type="email" class="form-control" placeholder=" " 
+    id="email" name="email" required>
+    <label for="email" class="form-label">Email</label>
   </div>
+  
+  <div class="form-group">
+      <input type="number" class="form-control" placeholder=" " 
+      id="numero1" name="numero1" required>
+      <label for="numero1" class="form-label">Number 1</label>
+    </div>
+
+    <div class="form-group">
+      <input type="number" class="form-control" placeholder=" " 
+      id="numero2" name="numero2">
+      <label for="numero2" class="form-label">Number 2 (Optional)</label>
+    </div>
 
   <div class="form-group">
-    <input type="email" class="form-control" placeholder="Correo:" id="email" name="email" required>
-    <label for="email" class="form-label"></label>
-  </div>
-
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Numero1" id="numero1" name="numero1" required >
-    <label for="city" class="form-label"></label>
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Numero2" id="numero2" name="numero2" required>
-    <label for="city" class="form-label"></label>
-  </div>
-
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Direccion" id="direccion" name="direccion" required>
-    <label for="region" class="form-label"></label>
+    <textarea id="message" class="form-control" placeholder=" " 
+    id="direccion" name="direccion" style="height:200px"></textarea>
+    <label for="direccion" id="message" class="form-label">Address</label>
   </div>
 
   <div class="form-group">
@@ -55,14 +62,15 @@
   </div>
   </form>
 
-  <div class="right">
+  <div class="right-pago">
     <div class="titulo">
       <h3>RESUMEN DEL PEDIDO</h3>
+      </div>
       <br>
-      </div>
-      <div id="order">
-
-      </div>
+      <div id="order">  </div>
+      <br>
+      <br>
+      <br>
       <script src="https://www.paypal.com/sdk/js?client-id=<%= PAYPAL_API_CLIENT %>&currency=USD&disable-funding=card,credit"></script>
 <script defer src="js/paymentButton.js"></script>
 <script src="js/control.js"></script>
