@@ -13,41 +13,45 @@
 </div>
 
 <div class="container-contactos">
-  <form class="container-pagos" method="POST">
+  <form class="container-pagos" >
   <div class="titulo">
   <h3>INFORMACION DEL CONTACTO</h3>
   <br>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder=" " id="name" name="nombre" >
-    <label for="name" class="form-label">Nombre:</label>
+    <input type="text" class="form-control" placeholder="Nombre" id="name" name="nombre" required>
+    <label for="name" class="form-label"></label>
   </div>
   
   <div class="form-group">
-    <input type="email" class="form-control" placeholder=" " id="email" name="email">
-    <label for="email" class="form-label">Email:</label>
+    <input type="text" class="form-control" placeholder="Apellido" id="apellido" name="apellido" required>
+    <label for="apellido" class="form-label"></label>
   </div>
 
   <div class="form-group">
-    <input type="text" class="form-control" placeholder=" " id="adress" name="descripcion" >
-    <label for="adress" class="form-label">Descripcion</label>
+    <input type="email" class="form-control" placeholder="Correo:" id="email" name="email" required>
+    <label for="email" class="form-label"></label>
   </div>
 
   <div class="form-group">
-    <input type="text" class="form-control" placeholder=" " id="city" name="ciudad" >
-    <label for="city" class="form-label">Ciudad</label>
+    <input type="text" class="form-control" placeholder="Numero1" id="numero1" name="numero1" required >
+    <label for="city" class="form-label"></label>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Numero2" id="numero2" name="numero2" required>
+    <label for="city" class="form-label"></label>
   </div>
 
   <div class="form-group">
-    <input type="text" class="form-control" placeholder=" " id="region" name="provincia" >
-    <label for="region" class="form-label">Provincia</label>
+    <input type="text" class="form-control" placeholder="Direccion" id="direccion" name="direccion" required>
+    <label for="region" class="form-label"></label>
   </div>
 
   <div class="form-group">
-    <input type="checkbox" id="gift" value=""><label for="gift">Enviar como regalo</label><br>
+    <input type="checkbox" id="gift" value="3"><label for="gift">Enviar como regalo</label><br>
   </div>
   <div class="form-group">
-  <button type="submit"  value="">Enviar</button>
+  <button type="submit" onclick="obtenerdatos()">Hacer pedido</button>
   </div>
   </form>
 

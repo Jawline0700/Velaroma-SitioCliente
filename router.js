@@ -102,7 +102,7 @@ router.get ("/",(req,res)=>{
       res.type("text/html");
       res.render(
         "index",
-        {
+        { 
           pagina: 7,
           PAYPAL_API_CLIENT: PAYPAL_API_CLIENT,
         },
@@ -112,6 +112,27 @@ router.get ("/",(req,res)=>{
         }
       );
     });
+
+    router.post("/pagos",function(req, res) {
+      var nombre = req.body.name;
+      var apellido = req.body.lastname;
+      var correo = req.body.email;
+      var numero1 = req.body.tel1;
+      var numero2 = req.body.tel2;
+      var direccion = req.body.dir;
+      var tipo = Number.parseInt(req.body.tipo);
+      var total = Number.parseFloat(req.body.total);
+      var descripcion = req.body.desc;
+      conexion.query('call insertar_pedidos(?,?,?,?,?,?,?,?,?,?)',[nombre,apellido,correo,numero1,numero2,direccion,total,1,tipo,descripcion],(error,results)=>{
+        if(error){
+          throw error;
+         }
+      });
+
+
+    });
+
+
 
 
 
