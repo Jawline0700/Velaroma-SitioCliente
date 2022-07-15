@@ -55,7 +55,21 @@
     id="message" name="message" style="height:200px"></textarea>
     <label for="message" id="message" class="form-label">Your Message</label>
   </div>
-  <button class="btname" type="submit" onclick="hizoClick()">Siguiente</button>
+  <button class="btname" onclick="hizoClick()">Enviar</button>
   </form>
 
 </div>
+
+<script>
+  function hizoClick() {
+    Swal.fire({
+    title: 'Mensaje enviado con exito',
+  // html:
+    icon: 'success',
+    timer: 1500,
+    showConfirmButton: false,
+    position: 'top',
+
+  });
+  }
+</script>
