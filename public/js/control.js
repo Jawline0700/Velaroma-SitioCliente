@@ -146,7 +146,15 @@ $('.add-to-cart').click(function (event) {
   var id = $(this).data('id')
   var name = $(this).data('name');
   var price = Number($(this).data('price'));
-  alert('Producto agregado con exito')
+  Swal.fire({
+    title: 'Producto gregado con exito',
+  // html:
+    icon: 'success',
+    timer: 1500,
+    showConfirmButton: false,
+    position: 'top',
+
+  });
   shoppingCart.addItemToCart(id, name, price, 1);
   displayCart();
 });
@@ -175,7 +183,15 @@ console.log(shoppingCart.listCart());
 function agregarproducto(id, nombre, precio) {
   var idfinal = Number(id)
   shoppingCart.addItemToCart(idfinal, nombre, precio, 1);
-  alert("Producto agregado con exito");
+  Swal.fire({
+    title: 'Producto agregado con exito',
+  // html:
+    icon: 'success',
+    timer: 1500,
+    showConfirmButton: false,
+    position: 'top',
+
+  });
 }
 
 
@@ -257,7 +273,15 @@ function obtenerdatos(){
         total:monto,
         desc:output
       }
-      alert("Pedido ingresado correctamente");
+      Swal.fire({
+        title: 'Pedido agregado con exito',
+      // html:
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false,
+        position: 'top',
+    
+      });
       var cadena = JSON.stringify(opc);
       fetch("http://localhost:3000/pagos",{
         method:"POST",
@@ -272,7 +296,15 @@ function obtenerdatos(){
       console.log(error);
      }  
   }else{
-    alert("Agregue un producto para poder hacer un pedido");
+    Swal.fire({
+    	title: 'Agregue un producto para poder hacer un pedido',
+	  // html:
+		  icon: 'error',
+		  timer: 1500,
+		  showConfirmButton: false,
+		  position: 'top',
+	
+    });
   }
  
 }

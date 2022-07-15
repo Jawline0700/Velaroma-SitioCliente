@@ -390,29 +390,20 @@ input[type=text], input[type=email],  input[type=number],select, textarea {
   
   .btname{
     font-family:"Riwaya-Italic";
-    background-color: #A48B8B;
+    background-color: #D8A2A2;
     color: white;
     padding: 12px 20px;
     border: 2px solid white;
     border-radius: 4px;
     width:55%;
     cursor: pointer;
+    margin-left:150px;
     
   }
 
-  #boton-enviar {
-    font-family:"Riwaya-Italic";
-    background-color: #D8A2A2;
-    color: white;
-    padding: 12px 20px;
-    border: 2px solid white;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left:1250px;
-    transform:translateY(-30px);
-    
+  .btname:hover {
+    background-color: #A48B8B;
   }
-
   
  
   .col-25 {
