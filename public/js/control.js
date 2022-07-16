@@ -147,10 +147,10 @@ $('.add-to-cart').click(function (event) {
   var name = $(this).data('name');
   var price = Number($(this).data('price'));
   Swal.fire({
-    title: 'Producto gregado con exito',
+    title: 'Producto Agregado con exito',
   // html:
     icon: 'success',
-    timer: 1500,
+    timer: 2500,
     showConfirmButton: false,
     position: 'top',
 
@@ -166,7 +166,7 @@ console.log(shoppingCart.listCart());
   try{
     const shopCart = shoppingCart.listCart().map(function(element){
       return ` <div class="totalpago">
-      <p>Nombre: ${element.name}</p> <p>Precio: ${element.price}</p> <p>CantidadxProducto: ${element.count}</p> </div>`;
+      <p>Nombre: ${element.name}</p> <p>Precio: ${element.price}</p> <p>CantidadxProducto: ${element.count}</p></div>`;
     })
   total = shoppingCart.totalCart();
   itbms = shoppingCart.totalCart()*0.07;
@@ -188,7 +188,7 @@ function agregarproducto(id, nombre, precio) {
     title: 'Producto agregado con exito',
   // html:
     icon: 'success',
-    timer: 1500,
+    timer: 2500,
     showConfirmButton: false,
     position: 'top',
 
@@ -278,7 +278,7 @@ function obtenerdatos(){
         title: 'Pedido agregado con exito',
       // html:
         icon: 'success',
-        timer: 1500,
+        timer: 2500,
         showConfirmButton: false,
         position: 'top',
     
@@ -301,7 +301,7 @@ function obtenerdatos(){
     	title: 'Agregue un producto para poder hacer un pedido',
 	  // html:
 		  icon: 'error',
-		  timer: 1500,
+		  timer: 2500,
 		  showConfirmButton: false,
 		  position: 'top',
 	
@@ -310,6 +310,45 @@ function obtenerdatos(){
  
 }
 
+
+function contacto(){
+
+  nombre = document.getElementById('name').value;
+  correo = document.getElementById('email').value;
+  numero = document.getElementById('number').value;
+  mensaje = document.getElementById('message').value;
+
+  var cont = {
+    name: nombre,
+    email: correo,
+    number: numero,
+    desc: mensaje
+  }
+  var cadena = JSON.stringify(cont);
+  Swal.fire({
+    title: 'Mensaje enviado correctamente,pronto nos pondremos en contacto con usted',
+  // html:
+    icon: 'error',
+    timer: 3000,
+    showConfirmButton: false,
+    position: 'top',
+
+  });
+  
+  try{
+    fetch("http://localhost:3000/contactanos",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:cadena
+      })
+
+  }catch(error){
+    console.log(error);
+  }
+
+}
 
 
 

@@ -133,6 +133,23 @@ router.get ("/",(req,res)=>{
     });
 
 
+    
+    router.post("/contactanos",function(req, res) {
+      var nombreS = req.body.name;
+      var emailS = req.body.email;
+      var numeroS = req.body.number;
+      var des = req.body.desc
+      conexion.query('INSERT INTO contactos SET ?',{nombre:nombreS,correo:emailS,numero:numeroS,Mensaje:des},(error,results)=>{
+        if(error){
+          console.log(error);
+         }
+      });
+
+
+    });
+
+
+
 
 
 

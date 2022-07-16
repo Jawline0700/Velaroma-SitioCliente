@@ -27,49 +27,31 @@
   </div>
 
 
-  <form class="container-pagos" method="POST">
+  <form class="container-pagos">
   <div class="titulo">
   <h3>INFORMACION DEL CONTACTO</h3>
   <br>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder=" " 
-    id="name" name="name" >
-    <label for="name" class="form-label">Your Name</label>
+    <input type="text" class="form-control" placeholder=" " id="name" name="nombre" required >
+    <label for="name" class="form-label">Nombre</label>
   </div>
   
   <div class="form-group">
-    <input type="email" class="form-control" placeholder=" " 
-    id="email" name="email">
-    <label for="email" class="form-label">Your Email</label>
+    <input type="email" class="form-control" placeholder=" " id="email" name ="correo" required >
+    <label for="email" class="form-label">Correo</label>
   </div>
   
   <div class="form-group">
-      <input type="number" class="form-control" placeholder=" " 
-      id="number" name="number">
-      <label for="number" class="form-label">Your Number</label>
+      <input type="number" class="form-control" placeholder=" " id="number" name="numero" required >
+      <label for="number" class="form-label">Numero</label>
     </div>
 
   <div class="form-group">
-    <textarea id="message" class="form-control" placeholder=" " 
-    id="message" name="message" style="height:200px"></textarea>
-    <label for="message" id="message" class="form-label">Your Message</label>
+    <textarea id="message" class="form-control" placeholder=" "  style="height:200px" required name="mensaje"></textarea>
+    <label for="message" id="message" class="form-label">Mensaje</label>
   </div>
-  <button class="btname" onclick="hizoClick()">Enviar</button>
+  <button class="btname" onclick="contacto()">Enviar</button>
   </form>
 
 </div>
-
-<script>
-  function hizoClick() {
-    Swal.fire({
-    title: 'Mensaje enviado con exito',
-  // html:
-    icon: 'success',
-    timer: 1500,
-    showConfirmButton: false,
-    position: 'top',
-
-  });
-  }
-</script>
