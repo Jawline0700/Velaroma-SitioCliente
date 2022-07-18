@@ -132,8 +132,6 @@ router.get ("/",(req,res)=>{
 
     });
 
-
-    
     router.post("/contactanos",function(req, res) {
       var nombreS = req.body.name;
       var emailS = req.body.email;

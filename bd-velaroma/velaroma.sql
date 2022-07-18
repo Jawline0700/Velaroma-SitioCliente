@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2022 a las 21:30:07
+-- Tiempo de generación: 18-07-2022 a las 03:35:27
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `velaroma`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertar_pedidos` (IN `nombre` VARCHAR(25), IN `apellido` VARCHAR(25), IN `correo` VARCHAR(30), IN `numero1` VARCHAR(20), IN `numero2` VARCHAR(20), IN `direccion` VARCHAR(50), IN `monto` FLOAT, IN `id_estado` INT(11), IN `id_tipopedido` INT(11), IN `descripcion` MEDIUMTEXT)  BEGIN
+
+DECLARE idcliente int ;
+DECLARE idpedido int;
+
+INSERT INTO cliente(cliente.nombre,cliente.apellido,cliente.correo,cliente.numero1,cliente.numero2,cliente.direccion)
+VALUES(nombre,apellido,correo,numero1,numero2,direccion);
+
+SET @idcliente = LAST_INSERT_ID();
+
+INSERT INTO pedido(pedido.fecha_pedido,pedido.descripcion,pedido.Monto,pedido.id_estado,pedido.id_tipopedido)
+VALUES(CURRENT_DATE(),descripcion,monto,id_estado,id_tipopedido);
+
+SET @idpedido = LAST_INSERT_ID();
+
+INSERT INTO clientexpedido(clientexpedido.id_cliente,clientexpedido.n_pedido)
+VALUES(@idcliente,@idpedido);
+
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -42,7 +68,15 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `correo`, `numero1`, `numero2`, `direccion`) VALUES
-(1, 'Wencers', 'Castillo', 'wencerscastillo40@gamil.com', '63194033', '63194033', 'Arraijan,Panama');
+(1, 'Wencers', 'Castillo', 'wencerscastillo40@gamil.com', '63194033', '63194033', 'Arraijan,Panama'),
+(3, 'Ru', 'Paul', 'rupaul@gmail.com', '666666', '777777', 'USA'),
+(4, 'Matt', 'Castillo', 'mathewscastillo40@gmail.com', '66666', '1234', 'Panama'),
+(5, 'Jostin', 'Gamboa', 'jostingamboa@gmail.com', '66666', '1234', 'Panama'),
+(6, 'Wino', 'Tia', 'wino@gmail.com', '1223', '1234', 'Colon'),
+(7, 'Mama', 'Eliecer', 'mamaeliecer@gmail.com', '66666', '1234', 'Panama'),
+(8, 'Daniel', 'Campos', 'danielcampos@gmail.com', '345', '567', 'Panama'),
+(9, 'Jeff', 'Ramirez', 'jefframirez@gmail.com', '234', '3434', 'Tumba Muerto'),
+(10, 'Made', 'Castillo', 'madecastillo', '1223', '567', 'Panama');
 
 -- --------------------------------------------------------
 
@@ -55,6 +89,42 @@ CREATE TABLE `clientexpedido` (
   `n_pedido` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `clientexpedido`
+--
+
+INSERT INTO `clientexpedido` (`id_cliente`, `n_pedido`) VALUES
+(3, 2),
+(4, 3),
+(5, 4),
+(6, 5),
+(7, 6),
+(8, 7),
+(9, 8),
+(10, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contactos`
+--
+
+CREATE TABLE `contactos` (
+  `id_contacto` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `numero` varchar(100) NOT NULL,
+  `Mensaje` varchar(8000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `contactos`
+--
+
+INSERT INTO `contactos` (`id_contacto`, `nombre`, `correo`, `numero`, `Mensaje`) VALUES
+(1, 'Mathews Castillo', 'mathewscastillo@gmail.com', '1223', 'Reclamo'),
+(2, 'Mathews Castillo', 'wencerscastillo@gmail.com', '1246', 'Queja');
+
 -- --------------------------------------------------------
 
 --
@@ -65,6 +135,15 @@ CREATE TABLE `estado_pedido` (
   `id_estado` int(11) NOT NULL,
   `estado` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estado_pedido`
+--
+
+INSERT INTO `estado_pedido` (`id_estado`, `estado`) VALUES
+(1, 'Pendiente'),
+(2, 'Aprobado'),
+(3, 'Cancelado');
 
 -- --------------------------------------------------------
 
@@ -116,11 +195,11 @@ INSERT INTO `inventario` (`id_producto`, `nombre`, `imagen`, `descripcion`, `pre
 (16, 'Incienso Decorativo', 'oferta4.jpg', 'Incienso con fines decorativos', 0.99, 10, 4),
 (17, 'Incienso Canela', 'oferta5.jpg', 'Este incienso atrae la prosperidad', 1.99, 20, 4),
 (18, 'Ticket Descuento', 'minipost.gif', 'Obtén 15% de descuento al comprar este ticket puedes utilizarlo en kekimarket o velaroma', 15.99, 10, 4),
-(19, 'Diseño Estrella', 'diseño1.jpg', 'Vela diseño Estrella', 1.99, 300, 5),
-(20, 'Diseño Luna', 'diseño2.jpg', 'Diseño de luna', 2.99, 300, 5),
-(21, 'Diseño Almeja', 'diseño3.jpg', 'Vela almeja', 0.99, 300, 5),
-(22, 'Diseño Estatua', 'diseño4.jpg', 'Vela Estatua', 3.99, 300, 5),
-(23, 'Diseño Mano', 'diseño5.jpg', 'Vela Mano', 1.99, 300, 5),
+(19, 'Diseño Estrella', 'diseno1.jpg', 'Vela diseño Estrella', 1.99, 300, 5),
+(20, 'Diseño Luna', 'diseno2.jpg', 'Diseño de luna', 2.99, 300, 5),
+(21, 'Diseño Almeja', 'diseno3.jpg', 'Vela almeja', 0.99, 300, 5),
+(22, 'Diseño Estatua', 'diseno4.jpg', 'Vela Estatua', 3.99, 300, 5),
+(23, 'Diseño Mano', 'diseno5.jpg', 'Vela Mano', 1.99, 300, 5),
 (24, 'Aroma Jazmin', NULL, 'Fragancia de Jazmin', 0.99, 10, 6),
 (25, 'Aroma Canela', NULL, 'Fragancia de Canela', 1.99, 10, 6),
 (26, 'Aroma Lavanda', NULL, 'Fragancia de lavanda', 0.99, 10, 6),
@@ -138,9 +217,23 @@ CREATE TABLE `pedido` (
   `fecha_pedido` date NOT NULL,
   `descripcion` mediumtext NOT NULL,
   `Monto` float NOT NULL,
-  `id_estado` int(11) NOT NULL,
+  `id_estado` int(11) NOT NULL DEFAULT 1,
   `id_tipopedido` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`n_pedido`, `fecha_pedido`, `descripcion`, `Monto`, `id_estado`, `id_tipopedido`) VALUES
+(2, '2022-07-12', 'Vela Decorativa 1', 1000, 1, 1),
+(3, '2022-07-13', '-Nombre: Vela  Decorativa-Cantidad: 1', 4.27, 1, 3),
+(4, '2022-07-13', '-Nombre: Vela  Decorativa-Cantidad: 2', 8.54, 1, 3),
+(5, '2022-07-13', '-Nombre: Vela Estandar-Cantidad: 1-Nombre: Vela Catcus-Cantidad: 1', 11.75, 1, 3),
+(6, '2022-07-13', '-Nombre: Vela Estandar-Cantidad: 1', 3.2, 1, 3),
+(7, '2022-07-13', '-Nombre: Vela  Decorativa-Cantidad: 1', 4.27, 1, 1),
+(8, '2022-07-13', '-Nombre: Vela  Decorativa-Cantidad: 1', 4.27, 1, 3),
+(9, '2022-07-13', '-Nombre: Vela  Decorativa-Cantidad: 2', 8.54, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -180,7 +273,6 @@ CREATE TABLE `tipo_pedido` (
 
 INSERT INTO `tipo_pedido` (`id_tipopedido`, `tipo`) VALUES
 (1, 'Estandar'),
-(2, 'Personalizado'),
 (3, 'Arreglo de Regalo');
 
 -- --------------------------------------------------------
@@ -266,6 +358,12 @@ ALTER TABLE `clientexpedido`
   ADD KEY `n_pedido` (`n_pedido`);
 
 --
+-- Indices de la tabla `contactos`
+--
+ALTER TABLE `contactos`
+  ADD PRIMARY KEY (`id_contacto`);
+
+--
 -- Indices de la tabla `estado_pedido`
 --
 ALTER TABLE `estado_pedido`
@@ -343,13 +441,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `contactos`
+--
+ALTER TABLE `contactos`
+  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_pedido`
 --
 ALTER TABLE `estado_pedido`
-  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_transaccion`
@@ -367,7 +471,7 @@ ALTER TABLE `inventario`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `n_pedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `n_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_insumo`
