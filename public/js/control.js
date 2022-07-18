@@ -278,8 +278,8 @@ function obtenerdatos(){
         title: 'Pedido agregado con exito',
       // html:
         icon: 'success',
-        timer: 2500,
-        showConfirmButton: false,
+        timer: 10000,
+        showConfirmButton: true,
         position: 'top',
     
       });
@@ -318,19 +318,39 @@ function contacto(){
   numero = document.getElementById('number').value;
   mensaje = document.getElementById('message').value;
 
+  console.log(typeof(nombre));
   var cont = {
     name: nombre,
     email: correo,
     number: numero,
     desc: mensaje
   }
+
+
   var cadena = JSON.stringify(cont);
+
+  if (nombre == "" || correo == "" || numero == "" || mensaje == ""){
+      
+  Swal.fire({
+    title: 'Llene los campos faltantes',
+  // html:
+    icon: 'error',
+    timer:  10000,
+    showConfirmButton: true,
+    position: 'top',
+
+  });
+  
+
+  }
+  else{
+    
   Swal.fire({
     title: 'Mensaje enviado correctamente,pronto nos pondremos en contacto con usted',
   // html:
-    icon: 'error',
-    timer: 3000,
-    showConfirmButton: false,
+    icon: 'Success',
+    timer:  10000,
+    showConfirmButton: true,
     position: 'top',
 
   });
@@ -346,6 +366,8 @@ function contacto(){
 
   }catch(error){
     console.log(error);
+  }
+
   }
 
 }
