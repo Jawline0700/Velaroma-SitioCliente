@@ -146,25 +146,34 @@ $('.add-to-cart').click(function (event) {
   var id = $(this).data('id')
   var name = $(this).data('name');
   var price = Number($(this).data('price'));
-  alert('Producto agregado con exito')
+  Swal.fire({
+    title: 'Producto Agregado con exito',
+  // html:
+    icon: 'success',
+    timer: 2500,
+    showConfirmButton: false,
+    position: 'top',
+
+  });
   shoppingCart.addItemToCart(id, name, price, 1);
   displayCart();
 });
 
 console.log(shoppingCart.listCart());
   const divpago = document.createElement("div");
-  divpago.classList.add('qtotalpago')
+  divpago.classList.add('totalpago')
 
   try{
     const shopCart = shoppingCart.listCart().map(function(element){
-      return `<p>Nombre:${element.name}</p> <p>Precio:${element.price}</p> <p>CantidadxProducto:${element.count}</p>`;
+      return ` <div class="totalpago">
+      <p>Nombre: ${element.name}</p> <p>Precio: ${element.price}</p> <p>CantidadxProducto: ${element.count}</p></div>`;
     })
   total = shoppingCart.totalCart();
   itbms = shoppingCart.totalCart()*0.07;
   itbms_final = itbms.toFixed(2);
   totalfinal = shoppingCart.totalCart()+itbms;
   preciofinal = totalfinal.toFixed(2);
-  const respuesta = `<div> <tr>${shopCart}</tr> <p>Subtotal: ${total}</p><p>ITBMS: ${itbms_final}<p>Total a pagar: ${preciofinal}</p> </div>`;
+  const respuesta = `<div class="totalpago-subtotal"> <tr>${shopCart}</tr> <br><br><p>Subtotal: ${total}</p><p>ITBMS: ${itbms_final}<p>Total a pagar: ${preciofinal}</p> </div>`;
   console.log(`${respuesta}`);
  document.getElementById('order').innerHTML= `${respuesta}`;
   }catch(error){
@@ -175,7 +184,15 @@ console.log(shoppingCart.listCart());
 function agregarproducto(id, nombre, precio) {
   var idfinal = Number(id)
   shoppingCart.addItemToCart(idfinal, nombre, precio, 1);
-  alert("Producto agregado con exito");
+  Swal.fire({
+    title: 'Producto agregado con exito',
+  // html:
+    icon: 'success',
+    timer: 2500,
+    showConfirmButton: false,
+    position: 'top',
+
+  });
 }
 
 
@@ -257,7 +274,15 @@ function obtenerdatos(){
         total:monto,
         desc:output
       }
-      alert("Pedido ingresado correctamente");
+      Swal.fire({
+        title: 'Pedido agregado con exito',
+      // html:
+        icon: 'success',
+        timer: 2500,
+        showConfirmButton: false,
+        position: 'top',
+    
+      });
       var cadena = JSON.stringify(opc);
       fetch("http://localhost:3000/pagos",{
         method:"POST",
@@ -272,11 +297,58 @@ function obtenerdatos(){
       console.log(error);
      }  
   }else{
-    alert("Agregue un producto para poder hacer un pedido");
+    Swal.fire({
+    	title: 'Agregue un producto para poder hacer un pedido',
+	  // html:
+		  icon: 'error',
+		  timer: 2500,
+		  showConfirmButton: false,
+		  position: 'top',
+	
+    });
   }
  
 }
 
+
+function contacto(){
+
+  nombre = document.getElementById('name').value;
+  correo = document.getElementById('email').value;
+  numero = document.getElementById('number').value;
+  mensaje = document.getElementById('message').value;
+
+  var cont = {
+    name: nombre,
+    email: correo,
+    number: numero,
+    desc: mensaje
+  }
+  var cadena = JSON.stringify(cont);
+  Swal.fire({
+    title: 'Mensaje enviado correctamente,pronto nos pondremos en contacto con usted',
+  // html:
+    icon: 'error',
+    timer: 3000,
+    showConfirmButton: false,
+    position: 'top',
+
+  });
+  
+  try{
+    fetch("http://localhost:3000/contactanos",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:cadena
+      })
+
+  }catch(error){
+    console.log(error);
+  }
+
+}
 
 
 

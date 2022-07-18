@@ -12,10 +12,12 @@
   </div>
 </div>
 
-    <div class="container_personal">
-        <div class="left">
+    <div class="container">
+        <div class="row mb-3">
+          <div class="col-4" id="left">
           <form> 
             <fieldset><h2 class="titulo">DISEÑOS</h2>
+              <br>
             <% results.forEach((inventario)=>{%>
               <div class="izquierda">
                  <p ><%=inventario.nombre %></p>
@@ -32,15 +34,16 @@
    </div>
 </div>
             <% })  %>
-          
+    </div>
+  
+  <div class="col-4" id="center">
+    <label><img id="foto" class="card-imagen"src="../img/diseno1.jpg"></label>
   </div>
-  <div class="center">
-      <div class="img-center">
-          <label><img id="foto" class="card-imagen"src="../img/diseno1.jpg"></label>
-      </div>
-  </div>
-  <div class="right">
+
+
+  <div class="col-4" id="right">
       <h2 class="titulo">AROMAS</h2>
+      <br>
       <% console.log(fragancias);
       fragancias.forEach((aroma)=>{%>
         <div class="derecha"> 
@@ -61,7 +64,7 @@
         <br>
         <br>
       <% })  %>
-      <input type="submit" id="agregabtn" name="agregapersonaliza" value="Añadir al carrito" onclick="procesar()">
+      <input class="btname" type="submit" id="agregabtn" name="agregapersonaliza" value="Añadir al carrito" onclick="procesar()">
   </div>
   </div>
            </fieldset>
